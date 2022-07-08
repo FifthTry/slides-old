@@ -16,3 +16,17 @@ base: https://raw.githubusercontent.com/fifthtry/slides/main
 -- fpm.auto-import: pd/code-block as cb
 -- fpm.auto-import: pd/forest-theme as ft
 -- fpm.auto-import: fifthtry.github.io/slides/FPM/config
+
+
+-- fpm.sitemap:
+
+# Home: index.html
+
+- `title-slide`: /title-slide/
+- `section-header`: /section-header/
+- `title-body`: /title-body/
+- `title-2column`: /title-2column/
+- `title-only`: /title-only/
+- `one-column`: /one-column/
+- `main-point`: /main-point/
+- `section-description`: /section-description/
