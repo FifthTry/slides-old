@@ -1,0 +1,29 @@
+-- import: fifthtry.github.io/slides/assets
+-- import: fifthtry.github.io/package-doc/doc as pd
+
+
+-- boolean is-mobile: false
+
+-- is-mobile: true
+if: $ftd.device == mobile
+
+
+-- ft.page: `slides` and it's Usage
+
+A blank presentation slides layout collection. These slides can be used for
+your presentations.
+
+
+
+
+
+-- pd.package: `slides` and it's Usage
+name: fifthtry.github.io/slides
+
+To use `slides` on your web presentation, add below into `FPM.ftd` file:
+
+-- cb.code:
+lang: ftd
+
+\-- fpm.dependency: fifthtry.github.io/slides
+\-- fpm.auto-import: fifthtry.github.io/slides
