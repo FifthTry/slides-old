@@ -25,5 +25,15 @@ To use `slides` on your web presentation, add below into `FPM.ftd` file:
 -- cb.code:
 lang: ftd
 
-\-- fpm.dependency: fifthtry.github.io/slides
-\-- fpm.auto-import: fifthtry.github.io/slides
+\-- fpm.dependency: fifthtry.github.io/slides as slide
+\-- fpm.auto-import: slide
+
+
+
+
+
+
+
+
+
+
