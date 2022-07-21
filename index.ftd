@@ -1,17 +1,39 @@
 -- import: fifthtry.github.io/slides/assets
 -- import: fifthtry.github.io/package-doc/doc as pd
+-- import: fifthtry.github.io/package-doc/typography as tf
 
+-- integer total: 1
+
+-- integer number: 0
+
+-- boolean show-full-screen: false
+
+-- integer slide-no: 1
 
 -- boolean is-mobile: false
+
 
 -- is-mobile: true
 if: $ftd.device == mobile
 
+-- ftd.font-size big-font-desktop:
+line-height: 84
+size: 64
+letter-spacing: 1
+
+-- ftd.type big-font: $fpm.font-display
+desktop: $big-font-desktop
+mobile: $big-font-desktop
+xl: $big-font-desktop
+weight: 400
+
+
+
+
 
 -- ft.page: `slides` and it's Usage
 
-A blank presentation slides layout collection. These slides can be used for
-your presentations.
+A blank presentation slides. These slides can be used for web presentations.
 
 
 
@@ -20,13 +42,166 @@ your presentations.
 -- pd.package: `slides` and it's Usage
 name: fifthtry.github.io/slides
 
-To use `slides` on your web presentation, add below into `FPM.ftd` file:
+To use `slides` on web presentation, add below into `FPM.ftd` file:
 
 -- cb.code:
 lang: ftd
 
-\-- fpm.dependency: fifthtry.github.io/slides as slide
-\-- fpm.auto-import: slide
+\-- fpm.dependency: fifthtry.github.io/slides as slides
+\-- fpm.auto-import: slides
+
+
+-- pd.hidden-code: How to use slides: `copy` below code into `FTD` package
+
+\-- slides.presentation:
+total: 11
+embed: true
+
+\-- slides.main-point: Add slide title here
+number: 1
+
+\-- slides.one-column-text: Add slide title here
+number: 2
+
+Add body here...
+- Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+- sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+- Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+
+\-- slides.section-header: Add section header here
+number: 3
+
+\-- slides.section-title-and-description: Add slide title here
+number: 4
+subtitle: Add subtitle here
+
+Add body here...
+- Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+- sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+- Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+
+
+\-- slides.title-only: Add slide title here
+number: 5
+
+\-- slides.title-and-2-columns: Add slide title here
+number: 6
+
+\--- left-column:
+
+Add body here...
+- Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+- sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+- Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+
+\--- right-column:
+
+Add body here...
+- Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+- sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+- Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+
+
+\-- slides.title-and-body: Add slide title here
+number: 7
+
+Add body here...
+- Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+- sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+- Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+
+\-- slides.title-slide: Add slide title here
+number: 8
+subtitle: Add subtitle here
+
+\-- slides.big-number: Add big caption here
+number: 9
+subtitle: Add subtitle here
+
+\-- slides.caption: Add caption here
+number: 10
+
+\-- slides.blank: 
+number: 11
+
+
+
+-- tf.h2: Working demo:
+
+Press `CTRL+f` to see full screen mode. Press `left` / `right` arrow kyes to 
+navigate to left OR right slide.
+
+
+-- presentation:
+total: 11
+embed: true
+
+-- main-point: Add slide title here
+number: 1
+
+-- one-column-text: Add slide title here
+number: 2
+
+Add body here...
+- Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+- sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+- Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+
+-- section-header: Add section header here
+number: 3
+
+-- section-title-and-description: Add slide title here
+number: 4
+subtitle: Add subtitle here
+
+Add body here...
+- Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+- sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+- Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+
+
+-- title-only: Add slide title here
+number: 5
+
+-- title-and-2-columns: Add slide title here
+number: 6
+
+--- left-column:
+
+Add body here...
+- Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+- sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+- Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+
+--- right-column:
+
+Add body here...
+- Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+- sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+- Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+
+
+-- title-and-body: Add slide title here
+number: 7
+
+Add body here...
+- Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+- sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+- Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+
+-- title-slide: Add slide title here
+number: 8
+subtitle: Add subtitle here
+
+-- big-number: Add big caption here
+number: 9
+subtitle: Add subtitle here
+
+-- caption: Add caption here
+number: 10
+
+-- blank: 
+number: 11
 
 
 
@@ -37,3 +212,861 @@ lang: ftd
 
 
 
+
+-- ftd.row main-point:
+optional integer number: 
+if: $slide-no == $number
+caption title:
+width: fill
+height: fill
+padding-horizontal if $is-mobile: $fpm.space.space-4
+
+--- ftd.column:
+width: fill
+id: description
+align: center
+
+--- ftd.column:
+width: fill
+align: center
+max-width: 1200
+
+--- ftd.text: $title
+role: $fpm.type.heading-hero
+color: $fpm.color.main.background.step-1
+width: fill
+
+
+
+
+
+
+
+
+
+
+-- ftd.column one-column-text:
+caption title:
+body body:
+optional integer number:
+if: $slide-no == $number
+width: fill
+height: fill
+padding-horizontal if $is-mobile: $fpm.space.space-4
+
+--- ftd.row:
+if: not $is-mobile
+height: fill
+width: fill
+
+--- ftd.column:
+width: fill
+id: description
+align: center
+
+--- ftd.column:
+width: fill
+align: center
+max-width: 1200
+spacing: 36
+
+--- ftd.text: $title
+role: $fpm.type.heading-hero
+color: $fpm.color.main.background.step-1
+
+--- ftd.text:
+text: $body
+role: $fpm.type.copy-large
+color: $fpm.color.main.background.step-1
+
+--- container: ftd.main
+
+--- ftd.row:
+if: $is-mobile
+height: fill
+width: fill 
+
+--- ftd.column:
+width: fill
+align: center
+
+--- ftd.row:
+width: fill
+id: description
+align: center
+
+--- ftd.column:
+width: fill
+id: one-column
+spacing: 36
+
+--- ftd.text: $title
+role: $fpm.type.heading-hero
+color: $fpm.color.main.background.step-1
+
+--- ftd.text:
+text: $body
+role: $fpm.type.copy-large
+color: $fpm.color.main.background.step-1
+
+
+
+
+
+
+
+
+
+
+-- ftd.column section-title-and-description:
+caption title:
+string subtitle:
+body body:
+optional integer number:
+if: $slide-no == $number
+width: fill
+height: fill
+padding-horizontal if $is-mobile: $fpm.space.space-4
+
+--- ftd.row:
+if: not $is-mobile
+height: fill
+width: fill
+
+--- ftd.column:
+width: fill
+align: center
+
+--- ftd.row:
+width: fill
+id: description
+spacing: 36
+align: center
+max-width: 1200
+
+--- ftd.column:
+width: fill
+align: center
+id: one-column
+max-width: 1200
+
+--- ftd.text: $title
+role: $fpm.type.heading-hero
+color: $fpm.color.main.background.step-1
+width: fill
+
+--- ftd.text:
+text: $subtitle
+role: $fpm.type.heading-medium
+color: $fpm.color.main.background.step-1
+width: fill
+margin-top: $fpm.space.space-6
+
+--- container: description
+
+--- ftd.column:
+width: fill
+align: center
+
+--- ftd.text:
+text: $body
+role: $fpm.type.copy-large
+color: $fpm.color.main.background.step-1
+width: fill
+
+--- container: ftd.main
+
+--- ftd.row:
+if: $is-mobile
+height: fill
+width: fill
+
+--- ftd.column:
+width: fill
+align: center
+
+--- ftd.column:
+width: fill
+id: description
+align: center
+
+--- ftd.column:
+width: fill
+spacing: 36
+
+--- ftd.text: $title
+role: $fpm.type.heading-hero
+color: $fpm.color.main.background.step-1
+width: fill
+
+--- ftd.text:
+text: $subtitle
+role: $fpm.type.heading-medium
+color: $fpm.color.main.background.step-1
+width: fill
+margin-top: $fpm.space.space-6
+
+--- ftd.text:
+text: $body
+role: $fpm.type.copy-large
+color: $fpm.color.main.background.step-1
+width: fill
+
+
+
+
+
+
+
+
+
+
+-- ftd.row section-header:
+caption title:
+optional integer number:
+if: $slide-no == $number
+width: fill
+height: fill
+padding-horizontal if $is-mobile: $fpm.space.space-4
+
+
+--- ftd.column:
+width: fill
+id: description
+align: center
+
+--- ftd.column:
+width: fill
+align: center
+max-width: 1200
+
+--- ftd.text: $title
+role: $fpm.type.heading-hero
+color: $fpm.color.main.background.step-1
+width: fill
+
+
+
+
+
+
+
+
+
+
+-- ftd.column title-and-2-columns:
+caption title:
+optional integer number:
+if: $slide-no == $number
+width: fill
+height: fill
+padding-horizontal if $is-mobile: $fpm.space.space-4
+
+--- ftd.row:
+if: not $is-mobile
+height: fill
+width: fill
+
+--- ftd.column:
+width: fill
+align: center
+
+--- ftd.row:
+width: fill
+id: description
+spacing: 36
+align: center
+max-width: 1200
+
+--- ftd.column:
+width: fill
+align: center
+id: two-column
+max-width: 1200
+
+--- ftd.text: $title
+role: $fpm.type.heading-hero
+color: $fpm.color.main.background.step-1
+width: fill
+
+--- container: description
+
+--- ftd.row: 
+width: fill
+
+--- container: ftd.main
+
+--- ftd.row:
+if: $is-mobile
+height: fill
+width: fill
+id: mobile-wrap
+
+--- ftd.column:
+width: fill
+align: center
+
+--- ftd.row:
+width: fill
+id: description
+align: center
+
+--- ftd.column:
+width: fill
+min-height: 250
+spacing: 36
+id: two-column
+
+--- ftd.text: $title
+role: $fpm.type.heading-hero
+color: $fpm.color.main.background.step-1
+width: fill
+
+
+
+
+
+
+
+
+-- ftd.column left-column:
+body body:
+width: fill
+
+
+--- ftd.text:
+text: $body
+role: $fpm.type.copy-large
+color: $fpm.color.main.background.step-1
+width: fill
+
+
+
+
+
+
+
+
+
+
+-- ftd.column right-column:
+body body:
+width: fill
+
+
+--- ftd.text:
+text: $body
+role: $fpm.type.copy-large
+color: $fpm.color.main.background.step-1
+width: fill
+
+
+
+
+
+
+
+
+
+
+-- ftd.column title-and-body:
+caption title:
+body body:
+optional integer number:
+if: $slide-no == $number
+width: fill
+height: fill
+padding-horizontal if $is-mobile: $fpm.space.space-4
+
+--- ftd.row:
+height: fill
+width: fill
+
+--- ftd.column:
+width: fill
+id: description
+align: center
+
+--- ftd.column:
+width: fill
+align: center
+spacing: 36
+max-width: 1200
+
+--- ftd.text: $title
+role: $fpm.type.heading-hero
+color: $fpm.color.main.background.step-1
+width: fill
+
+--- ftd.text:
+text: $body
+role: $fpm.type.copy-large
+color: $fpm.color.main.background.step-1
+width: fill
+
+
+
+
+
+
+
+
+
+
+-- ftd.row title-only:
+caption title:
+optional integer number:
+if: $slide-no == $number
+width: fill
+height: fill
+padding-horizontal if $is-mobile: $fpm.space.space-4
+
+--- ftd.column:
+width: fill
+id: description
+align: center
+
+--- ftd.column:
+width: fill
+align: center
+max-width: 1200
+
+--- ftd.text: $title
+role: $fpm.type.heading-hero
+color: $fpm.color.main.background.step-1
+width: fill
+
+
+
+
+
+
+
+
+
+
+-- ftd.column title-slide:
+caption title:
+string subtitle:
+optional integer number:
+if: $slide-no == $number
+width: fill
+height: fill
+padding-horizontal if $is-mobile: $fpm.space.space-4
+
+--- ftd.row:
+if: not $is-mobile
+height: fill
+width: fill
+
+--- ftd.column:
+width: fill
+id: description
+align: center
+
+--- ftd.row:
+width: fill
+align: center
+spacing: 36
+max-width: 1200
+
+--- ftd.text: $title
+role: $fpm.type.heading-hero
+color: $fpm.color.main.background.step-1
+align: center
+text-align: center
+
+--- ftd.text:
+text: $subtitle
+role: $fpm.type.heading-medium
+color: $fpm.color.main.background.step-1
+align: center
+text-align: center
+
+--- container: ftd.main
+
+--- ftd.row:
+if: $is-mobile
+height: fill
+width: fill
+
+--- ftd.column:
+width: fill
+id: description
+align: center
+
+--- ftd.column:
+width: fill
+align: center
+spacing: 36
+max-width: 1200
+
+
+--- ftd.text: $title
+role: $fpm.type.heading-hero
+color: $fpm.color.main.background.step-1
+align: center
+text-align: center
+
+--- ftd.text:
+text: $subtitle
+role: $fpm.type.heading-medium
+color: $fpm.color.main.background.step-1
+align: center
+text-align: center
+
+
+
+
+
+
+
+
+
+
+-- ftd.row caption:
+caption title:
+width: fill
+height: fill
+optional integer number:
+if: $slide-no == $number
+padding-horizontal if $is-mobile: $fpm.space.space-4
+
+--- ftd.column:
+width: fill
+id: description
+align: bottom
+
+--- ftd.column:
+width: fill
+align: center
+max-width: 1200
+
+--- ftd.text: $title
+role: $fpm.type.copy-large
+color: $fpm.color.main.background.step-1
+width: fill
+
+
+
+
+
+
+
+
+
+
+-- ftd.column big-number:
+caption title:
+string subtitle:
+optional integer number:
+if: $slide-no == $number
+width: fill
+height: fill
+padding-horizontal if $is-mobile: $fpm.space.space-4
+
+--- ftd.row:
+height: fill
+width: fill
+
+--- ftd.column:
+width: fill
+id: description
+align: center
+
+--- ftd.column:
+width: fill
+align: center
+spacing: 36
+max-width: 1200
+
+--- ftd.text: $title
+role: $big-font
+color: $fpm.color.main.background.step-1
+align: center
+text-align: center
+
+--- ftd.text:
+text: $subtitle
+role: $fpm.type.heading-medium
+color: $fpm.color.main.background.step-1
+align: center
+text-align: center
+
+
+
+
+
+
+
+
+
+
+-- ftd.column blank:
+optional integer number:
+if: $slide-no == $number
+width: fill
+height: fill
+padding-horizontal if $is-mobile: $fpm.space.space-4
+
+--- ftd.row:
+height: fill
+width: fill
+
+--- ftd.column:
+width: fill
+id: description
+align: center
+
+--- ftd.column:
+width: fill
+align: center
+spacing: 36
+max-width: 1200
+
+
+
+
+
+
+
+
+
+
+
+-- ftd.column panel:
+integer total: 
+width: fill
+boolean active: false
+boolean show-left: false
+boolean show-right: false
+
+--- ftd.column:
+if: not $show-full-screen
+id: full-screen
+align: center
+anchor: parent
+right: 16
+bottom: 8
+
+--- ftd.image:
+if: not $active
+src: $assets.files.full-screen.svg
+$on-click$: $show-full-screen = true
+$on-global-key[ctrl-f]$: $show-full-screen = true
+$on-mouse-enter$: $active = true
+$on-mouse-leave$: $active = false
+
+--- container: full-screen
+
+--- ftd.image:
+if: $active
+src: $assets.files.full-screen-active.svg
+$on-click$: $show-full-screen = true
+$on-global-key[ctrl-f]$: $show-full-screen = true
+$on-mouse-enter$: $active = true
+$on-mouse-leave$: $active = false
+
+--- container: ftd.main
+
+--- ftd.row:
+align: center
+id: slots
+
+--- ftd.row:
+if: not $show-full-screen
+id: left-arrow
+align: center
+
+
+--- ftd.image:
+if: not $show-left
+src: $assets.files.left.svg
+$on-click$: decrement $slide-no clamp 1 $total
+width: 24
+height: 24
+align: center
+$on-mouse-enter$: $show-left = true
+$on-mouse-leave$: $show-left = false
+
+--- container: left-arrow
+
+--- ftd.image:
+if: $show-left
+src: $assets.files.left-active.svg
+$on-click$: decrement $slide-no clamp 1 $total
+width: 24
+height: 24
+align: center
+$on-mouse-enter$: $show-left = true
+$on-mouse-leave$: $show-left = false
+
+--- container: slots
+
+--- ftd.row:
+if: $show-full-screen
+$on-global-key[left]$: decrement $slide-no by 1  clamp 1 $total
+
+--- container: slots
+
+--- show-controls:
+if: not $show-full-screen
+total: $total
+align: center
+
+--- container: slots
+
+--- ftd.row:
+if: not $show-full-screen
+id: right-arrow
+align: center
+
+--- ftd.image:
+if: not $show-right
+src: $assets.files.right.svg
+$on-click$: increment $slide-no clamp 1 $total
+width: 24
+align: center
+$on-mouse-enter$: $show-right = true
+$on-mouse-leave$: $show-right = false
+
+--- container: right-arrow
+
+--- ftd.image:
+if: $show-right
+src: $assets.files.right-active.svg
+$on-click$: increment $slide-no clamp 1 $total
+width: 24
+align: center
+$on-mouse-enter$: $show-right = true
+$on-mouse-leave$: $show-right = false
+
+--- container: slots
+
+--- ftd.row:
+if: $show-full-screen
+$on-global-key[right]$: increment $slide-no  by 1 clamp 1 $total
+
+
+
+
+
+
+
+
+
+
+-- ftd.row show-controls:
+integer total:
+padding: 11
+border-radius: 10
+spacing: 8
+min-width: 90
+
+--- ftd.integer: $slide-no
+align: center
+width: fill
+text-align: center
+
+--- ftd.text: of 
+align: center
+width: fill
+text-align: center
+
+--- ftd.integer: $total
+align: center
+width: fill
+text-align: center
+
+
+
+
+
+
+
+
+
+
+-- ftd.column presentation:
+integer total: 1
+boolean embed: false
+optional ftd.image-src background:
+integer padding: 0
+width: fill
+height: fill
+open: true
+append-at: content
+background-color: $fpm.color.main.background.step-2
+background-image: $background
+margin-top: $padding
+margin-right: $padding
+margin-bottom: $padding
+margin-left: $padding
+id: presentation
+
+--- ftd.column:
+if: $show-full-screen
+anchor: window
+top:0
+left: 0
+height: calc 100% - 0px
+width: calc 100% - 0px
+background-color: $fpm.color.main.background.step-2
+z-index: 99999
+id: full-screen-container
+$on-global-key[esc]$: $show-full-screen = false
+
+--- ftd.column:
+width: fill
+height: fill
+
+--- ftd.column:
+id: content
+background-color: $white
+align: center
+width: fill
+height: fill
+
+--- container: full-screen-container
+
+--- panel:
+total: $total
+
+--- container: ftd.main
+
+--- ftd.column:
+if: not $show-full-screen
+width: fill
+height: fill
+id: hidden-screen-container
+
+--- ftd.column:
+id: content
+background-color: $white
+align: center
+width: fill
+height if not $embed: fill
+height if $embed: 550
+padding-horizontal: $fpm.space.space-5
+
+--- container: hidden-screen-container
+
+--- panel:
+total: $total
+
+
+
+
+
+
+
+
+
+
+-- ftd.color black:
+light: black
+dark: black
+
+-- ftd.color white:
+light: white
+dark: white

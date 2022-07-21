@@ -21,12 +21,5 @@ base: https://raw.githubusercontent.com/fifthtry/slides/main
 -- fpm.sitemap:
 
 # Home: index.html
+# Full Page Demo: /sample/
 
-- `title-slide`: /title-slide/
-- `section-header`: /section-header/
-- `title-body`: /title-body/
-- `title-2column`: /title-2column/
-- `title-only`: /title-only/
-- `one-column`: /one-column/
-- `main-point`: /main-point/
-- `section-description`: /section-description/
