@@ -10,6 +10,7 @@ base: https://raw.githubusercontent.com/fifthtry/slides/main
 -- fpm.dependency: fifthtry.github.io/inter
 
 
+
 -- fpm.auto-import: pd
 -- fpm.auto-import: fpm
 -- fpm.auto-import: pd/typography as tf
@@ -22,11 +23,3 @@ base: https://raw.githubusercontent.com/fifthtry/slides/main
 
 # Home: index.html
 
-- `title-slide`: /title-slide/
-- `section-header`: /section-header/
-- `title-body`: /title-body/
-- `title-2column`: /title-2column/
-- `title-only`: /title-only/
-- `one-column`: /one-column/
-- `main-point`: /main-point/
-- `section-description`: /section-description/
