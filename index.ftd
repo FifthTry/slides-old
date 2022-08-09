@@ -2,14 +2,10 @@
 -- import: fifthtry.github.io/package-doc/doc as pd
 -- import: fifthtry.github.io/package-doc/typography as tf
 
--- integer total: 1
 
 -- integer number: 0
 
 -- boolean show-full-screen: false
-
--- integer slide-no: 1
-
 
 -- boolean is-mobile: false
 
@@ -67,108 +63,157 @@ padding: <add padding here(optional)>
 
 
 
-
-
-
--- ftd.column presentation:
-integer total: 1
-boolean embed: false
-optional ftd.image-src bg-image:
-background-color: $white
-integer padding: 0
-width: fill
-height: fill
-open: true
-append-at: content
-id: presentation
-
---- ftd.column:
-if: $show-full-screen
-anchor: window
-top:0
-left: 0
+-- ftd.column mobile-overlay:
 height: calc 100% - 0px
-width: calc 100% - 0px
-background-color: $white
-z-index: 99999
-id: full-screen-container
-$on-global-key[esc]$: $show-full-screen = false
-
---- ftd.column:
-id: switch-container
+ftd.color overlay-bg-color:
 width: fill
-height: fill
-padding if not $is-mobile: $padding
-
---- ftd.column:
-if: not $is-mobile
-id: content
-align: center
-width: fill
-height: fill
-background-image if $bg-image is not null: $bg-image
-background-color if $bg-image is null: $white
-
---- container: switch-container
---- ftd.column:
-if: $is-mobile
-id: content
-align: center
-width: fill
-height: fill
-background-image if $bg-image is not null: $bg-image
-background-color if $bg-image is null: $white
-
---- container: full-screen-container
-
---- panel:
-total: $total
-
---- container: ftd.main
-
---- ftd.column:
-if: not $show-full-screen
-width: fill
-height: fill
-id: hidden-screen-container
-background-image if $bg-image is not null: $bg-image
-background-color if $bg-image is null: $white
-height if $embed: 400
-
---- ftd.column:
-if: not $is-mobile
-id: content
-align: center
-width: 1000
-scale: 0.6
-height if not $embed: fill
-height if $embed: 350
-padding-horizontal: $fpm.space.space-5
-move-left: 150
-
---- container: hidden-screen-container
-
---- ftd.column:
-if: $is-mobile
-height: 200
-width: fill
-
---- ftd.column:
-id: content
-width: fill
-height if not $embed: fill
-height if $embed: 200
-padding-horizontal: $fpm.space.space-5
-scale: 0.4
-min-width: 802
-anchor: parent
+anchor: window
 position: center
+background-color: $overlay-bg-color
+z-index: 10
+$on-click$: $show-full-screen = false
 
---- container: hidden-screen-container
 
---- panel:
-total: $total
 
+
+	
+-- ftd.column presentation:	
+integer current: 1	
+boolean embed: false	
+ftd.color bg-color: $white 	
+ftd.color overlay-bg-color: $black 	
+optional ftd.image-src bg-image: 	
+background-color: $bg-color	
+integer padding: 0	
+width: fill	
+height: fill	
+open: true	
+append-at: content	
+id: presentation	
+
+--- mobile-overlay:	
+if: $show-full-screen	
+if: $is-mobile	
+$overlay-bg-color: $overlay-bg-color
+
+--- container: ftd.main	
+
+--- ftd.column:	
+if: $show-full-screen	
+anchor: window	
+top:0	
+left: 0	
+height: calc 100% - 0px	
+height if $is-mobile: auto	
+width: calc 100% - 0px	
+background-color: $white	
+position if $is-mobile: center	
+z-index: 99999	
+id: full-screen-container	
+$on-global-key[esc]$: $show-full-screen = false	
+
+--- container: full-screen-container	
+
+--- ftd.column:	
+id: switch-container	
+width: fill	
+height: fill	
+height if $is-mobile: auto	
+padding if not $is-mobile: $padding	
+
+--- ftd.column:	
+if: not $is-mobile	
+id: content	
+align: center	
+width: fill	
+height: fill	
+background-image if $bg-image is not null: $bg-image	
+background-color if $bg-image is null: $bg-color
+
+--- container: switch-container	
+
+--- ftd.column:	
+if: $is-mobile	
+height: 200	
+width: fill	
+background-color if $bg-image is null: $bg-color
+
+
+--- ftd.column:	
+id: content	
+width: fill	
+height: 510	
+padding-horizontal: $fpm.space.space-5	
+scale: 0.4	
+min-width: 802	
+anchor: parent	
+position: center	
+
+--- container: full-screen-container	
+
+--- panel:	
+$current: $current	
+$children-count: $CHILDREN-COUNT	
+
+--- container: ftd.main	
+
+--- ftd.column:	
+if: not $show-full-screen	
+width: fill	
+height: fill	
+id: hidden-screen-container	
+background-image if $bg-image is not null: $bg-image	
+background-color if $bg-image is null: $bg-color	
+
+--- ftd.column:	
+if: not $is-mobile	
+width: fill	
+height if not $embed: fill	
+height if $embed: 350	
+id: inner	
+
+--- ftd.column:	
+if: not $embed	
+id: content	
+align: center	
+width: fill	
+height: fill	
+max-width: 1200	
+
+--- container: inner	
+
+--- ftd.column:	
+if: $embed	
+id: content	
+align: center	
+width: 1000	
+scale: 0.6	
+height: 290	
+padding-horizontal: $fpm.space.space-5	
+move-left: 150	
+
+--- container: hidden-screen-container	
+
+--- ftd.column:	
+if: $is-mobile	
+height: 200	
+width: fill	
+
+--- ftd.column:	
+id: content	
+width: fill	
+height: 450	
+padding-horizontal: $fpm.space.space-5	
+scale: 0.4	
+min-width: 802	
+anchor: parent	
+position: center	
+
+--- container: hidden-screen-container	
+
+--- panel:	
+$current: $current
+$children-count: $CHILDREN-COUNT
 
 
 
@@ -179,119 +224,161 @@ total: $total
 
 
 -- ftd.column panel:
-integer total: 
+integer $current:
+integer $children-count:
 width: fill
-boolean active: false
-boolean show-left: false
-boolean show-right: false
+boolean active: false	
+boolean show-left: false	
+boolean show-right: false	
+background-color: $fpm.color.main.background.step-2	
 
---- ftd.column:
-if: not $show-full-screen
-id: full-screen
-align: center
-anchor: parent
-right: 16
-bottom: 8
+--- ftd.column:	
+if: not $show-full-screen	
+id: full-screen	
+align: center	
+anchor: parent	
+right: 16	
+bottom: 8	
 
---- ftd.image:
-if: not $active
-src: $assets.files.full-screen.svg
-$on-click$: $show-full-screen = true
-$on-global-key[ctrl-f]$: $show-full-screen = true
-$on-mouse-enter$: $active = true
-$on-mouse-leave$: $active = false
+--- ftd.image:	
+if: not $active	
+src: $assets.files.full-screen.svg	
+$on-click$: $show-full-screen = true	
+$on-global-key[ctrl-f]$: $show-full-screen = true	
+$on-mouse-enter$: $active = true	
+$on-mouse-leave$: $active = false	
 
---- container: full-screen
+--- container: full-screen	
 
---- ftd.image:
-if: $active
-src: $assets.files.full-screen-active.svg
-$on-click$: $show-full-screen = true
-$on-global-key[ctrl-f]$: $show-full-screen = true
-$on-mouse-enter$: $active = true
-$on-mouse-leave$: $active = false
+--- ftd.image:	
+if: $active	
+src: $assets.files.full-screen-active.svg	
+$on-click$: $show-full-screen = true	
+$on-global-key[ctrl-f]$: $show-full-screen = true	
+$on-mouse-enter$: $active = true	
+$on-mouse-leave$: $active = false	
 
 --- container: ftd.main
 
---- ftd.row:
-align: center
-id: slots
+--- ftd.row:	
+if: not $is-mobile	
+align: center	
+id: slots	
 
---- ftd.row:
-if: not $show-full-screen
-id: left-arrow
-align: center
+--- ftd.row:	
+if: not $show-full-screen	
+id: left-arrow	
+align: center	
 
-
---- ftd.image:
-if: not $show-left
-src: $assets.files.left.svg
-$on-click$: decrement $slide-no clamp 1 $total
-width: 24
-height: 24
-align: center
-$on-mouse-enter$: $show-left = true
+--- ftd.image:	
+if: not $show-left	
+src: $assets.files.left.svg	
+$on-click$: decrement $current clamp 1 $children-count	
+width: 24	
+height: 24	
+align: center	
+$on-mouse-enter$: $show-left = true	
 $on-mouse-leave$: $show-left = false
 
 --- container: left-arrow
 
---- ftd.image:
-if: $show-left
-src: $assets.files.left-active.svg
-$on-click$: decrement $slide-no clamp 1 $total
-width: 24
-height: 24
-align: center
-$on-mouse-enter$: $show-left = true
+--- ftd.image:	
+if: $show-left	
+src: $assets.files.left-active.svg	
+$on-click$: decrement $current clamp 1 $children-count	
+width: 24	
+height: 24	
+align: center	
+$on-mouse-enter$: $show-left = true	
 $on-mouse-leave$: $show-left = false
 
---- container: slots
+--- container: slots	
 
---- ftd.row:
-if: $show-full-screen
-$on-global-key[left]$: decrement $slide-no by 1  clamp 1 $total
+--- ftd.row:	
+if: $show-full-screen	
+$on-global-key[left]$: decrement $current clamp 1 $children-count	
 
---- container: slots
+--- container: slots	
+
+--- show-controls:	
+if: not $show-full-screen	
+$total: $children-count	
+$current: $current	
+align: center	
+
+--- container: slots	
+
+--- ftd.row:	
+if: not $show-full-screen	
+id: right-arrow	
+align: center	
+
+--- ftd.image:	
+if: not $show-right	
+src: $assets.files.right.svg	
+$on-click$: increment $current clamp 1 $children-count	
+width: 24	
+align: center	
+$on-mouse-enter$: $show-right = true	
+$on-mouse-leave$: $show-right = false
+
+--- container: right-arrow	
+
+--- ftd.image:	
+if: $show-right	
+src: $assets.files.controls-img.right-active.svg	
+$on-click$: increment $current clamp 1 $children-count
+width: 24	
+align: center	
+$on-mouse-enter$: $show-right = true	
+$on-mouse-leave$: $show-right = false	
+
+--- container: ftd.main
+
+--- ftd.row:	
+if: $is-mobile	
+align: center	
+id: slots	
+
+--- ftd.row:	
+id: left-arrow	
+align: center	
+
+--- ftd.image:	
+src: $assets.files.controls-img.left.svg	
+$on-click$: decrement $current clamp 1 $children-count
+width: 24	
+height: 24	
+align: center	
+
+--- container: slots	
+
+--- ftd.row:	
+$on-global-key[left]$: decrement $current clamp 1 $children-count
 
 --- show-controls:
-if: not $show-full-screen
-total: $total
-align: center
+$total: $children-count	
+$current: $current		
+align: center	
 
 --- container: slots
 
---- ftd.row:
-if: not $show-full-screen
-id: right-arrow
-align: center
+--- ftd.row:	
+id: right-arrow	
+align: center	
 
---- ftd.image:
-if: not $show-right
-src: $assets.files.right.svg
-$on-click$: increment $slide-no clamp 1 $total
-width: 24
-align: center
-$on-mouse-enter$: $show-right = true
-$on-mouse-leave$: $show-right = false
-
---- container: right-arrow
-
---- ftd.image:
-if: $show-right
-src: $assets.files.right-active.svg
-$on-click$: increment $slide-no clamp 1 $total
-width: 24
-align: center
-$on-mouse-enter$: $show-right = true
-$on-mouse-leave$: $show-right = false
-
+--- ftd.image:	
+src: $assets.files.controls-img.right.svg	
+$on-click$: increment $current clamp 1 $children-count	
+width: 24	
+align: center	
+$on-mouse-enter$: $show-right = true	
+$on-mouse-leave$: $show-right = false	
 --- container: slots
 
---- ftd.row:
-if: $show-full-screen
-$on-global-key[right]$: increment $slide-no  by 1 clamp 1 $total
-
-
+--- ftd.row:	
+if: $show-full-screen	
+$on-global-key[right]$: increment $current clamp 1 $children-count	
 
 
 
@@ -301,13 +388,14 @@ $on-global-key[right]$: increment $slide-no  by 1 clamp 1 $total
 
 
 -- ftd.row show-controls:
-integer total:
+integer $total:
+integer $current:
 padding: 11
 border-radius: 10
 spacing: 8
 min-width: 90
 
---- ftd.integer: $slide-no
+--- ftd.integer: $current
 align: center
 width: fill
 text-align: center
