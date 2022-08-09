@@ -322,7 +322,7 @@ $on-mouse-leave$: $show-right = false
 
 --- ftd.image:	
 if: $show-right	
-src: $assets.files.controls-img.right-active.svg	
+src: $assets.files.right-active.svg	
 $on-click$: increment $current clamp 1 $children-count
 width: 24	
 align: center	
@@ -347,7 +347,7 @@ id: left-arrow
 align: center	
 
 --- ftd.image:	
-src: $assets.files.controls-img.left.svg	
+src: $assets.files.left.svg	
 $on-click$: decrement $current clamp 1 $children-count
 width: 24	
 height: 24	
@@ -366,7 +366,7 @@ id: right-arrow
 align: center	
 
 --- ftd.image:	
-src: $assets.files.controls-img.right.svg	
+src: $assets.files.right.svg	
 $on-click$: increment $current clamp 1 $children-count	
 width: 24	
 align: center	
