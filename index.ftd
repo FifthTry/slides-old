@@ -2,27 +2,14 @@
 -- import: fifthtry.github.io/package-doc/doc as pd
 -- import: fifthtry.github.io/package-doc/typography as tf
 
-
 -- integer number: 0
 
 -- boolean show-full-screen: false
 
 -- boolean is-mobile: false
 
-
 -- is-mobile: true
 if: $ftd.device == mobile
-
--- ftd.font-size big-font-desktop:
-line-height: 84
-size: 64
-letter-spacing: 1
-
--- ftd.type big-font: $fpm.font-display
-desktop: $big-font-desktop
-mobile: $big-font-desktop
-xl: $big-font-desktop
-weight: 400
 
 
 
@@ -63,6 +50,9 @@ padding: <add padding here(optional)>
 
 
 
+
+
+
 -- ftd.column mobile-overlay:
 height: calc 100% - 0px
 ftd.color overlay-bg-color:
@@ -77,11 +67,16 @@ $on-click$: $show-full-screen = false
 
 
 	
+
+
+
+
+
 -- ftd.column presentation:	
 integer current: 1	
 boolean embed: false	
-ftd.color bg-color: $white 	
-ftd.color overlay-bg-color: $black 	
+ftd.color bg-color: $fpm.color.main.text-strong 	
+ftd.color overlay-bg-color: $fpm.color.main.background.step-1	
 optional ftd.image-src bg-image: 	
 background-color: $bg-color	
 integer padding: 0	
@@ -106,7 +101,7 @@ left: 0
 height: calc 100% - 0px	
 height if $is-mobile: auto	
 width: calc 100% - 0px	
-background-color: $white	
+background-color: $fpm.color.main.text-strong	
 position if $is-mobile: center	
 z-index: 99999	
 id: full-screen-container	
@@ -214,6 +209,7 @@ position: center
 --- panel:	
 $current: $current
 $children-count: $CHILDREN-COUNT
+
 
 
 
@@ -333,6 +329,12 @@ align: center
 $on-mouse-enter$: $show-right = true	
 $on-mouse-leave$: $show-right = false	
 
+--- container: slots	
+
+--- ftd.row:	
+if: $show-full-screen	
+$on-global-key[right]$: increment $current clamp 1 $children-count	
+
 --- container: ftd.main
 
 --- ftd.row:	
@@ -351,10 +353,6 @@ width: 24
 height: 24	
 align: center	
 
---- container: slots	
-
---- ftd.row:	
-$on-global-key[left]$: decrement $current clamp 1 $children-count
 
 --- show-controls:
 $total: $children-count	
@@ -374,11 +372,8 @@ width: 24
 align: center	
 $on-mouse-enter$: $show-right = true	
 $on-mouse-leave$: $show-right = false	
---- container: slots
 
---- ftd.row:	
-if: $show-full-screen	
-$on-global-key[right]$: increment $current clamp 1 $children-count	
+
 
 
 
@@ -409,20 +404,3 @@ text-align: center
 align: center
 width: fill
 text-align: center
-
-
-
-
-
-
-
-
-
-
--- ftd.color black:
-light: black
-dark: black
-
--- ftd.color white:
-light: white
-dark: white
