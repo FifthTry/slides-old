@@ -81,6 +81,7 @@ height: fill
 open: true	
 append-at: content	
 id: presentation	
+$on-click$: increment $current clamp 1 $CHILDREN-COUNT	
 
 --- mobile-overlay:	
 if: $show-full-screen
@@ -145,7 +146,7 @@ position: center
 
 --- panel:	
 $current: $current	
-$children-count: $CHILDREN-COUNT	
+$children-count: $CHILDREN-COUNT
 show-full-screen: $show-full-screen
 
 --- container: ftd.main	
