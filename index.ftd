@@ -2,10 +2,6 @@
 -- import: fifthtry.github.io/package-doc/doc as pd
 -- import: fifthtry.github.io/package-doc/typography as tf
 
--- integer number: 0
-
--- boolean show-full-screen: false
-
 -- boolean is-mobile: false
 
 -- is-mobile: true
@@ -61,7 +57,6 @@ anchor: window
 position: center
 background-color: $overlay-bg-color
 z-index: 10
-$on-click$: $show-full-screen = false
 
 
 
@@ -74,7 +69,8 @@ $on-click$: $show-full-screen = false
 
 -- ftd.column presentation:	
 integer current: 1	
-boolean embed: false	
+boolean embed: true
+boolean show-full-screen: false
 ftd.color bg-color: $fpm.color.main.text-strong 	
 ftd.color overlay-bg-color: $fpm.color.main.background.step-1	
 optional ftd.image-src bg-image: 	
@@ -87,14 +83,15 @@ append-at: content
 id: presentation	
 
 --- mobile-overlay:	
-if: $show-full-screen	
+if: $show-full-screen
 if: $is-mobile	
 $overlay-bg-color: $overlay-bg-color
+$on-click$: $show-full-screen = false
 
 --- container: ftd.main	
 
 --- ftd.column:	
-if: $show-full-screen	
+if: $show-full-screen
 anchor: window	
 top:0	
 left: 0	
@@ -144,11 +141,12 @@ min-width: 802
 anchor: parent	
 position: center	
 
---- container: full-screen-container	
+--- container: full-screen-container
 
 --- panel:	
 $current: $current	
 $children-count: $CHILDREN-COUNT	
+show-full-screen: $show-full-screen
 
 --- container: ftd.main	
 
@@ -209,7 +207,7 @@ position: center
 --- panel:	
 $current: $current
 $children-count: $CHILDREN-COUNT
-
+show-full-screen: $show-full-screen
 
 
 
@@ -225,11 +223,12 @@ integer $children-count:
 width: fill
 boolean active: false	
 boolean show-left: false	
-boolean show-right: false	
+boolean show-right: false
+boolean show-full-screen: $PARENT.show-full-screen
 background-color: $fpm.color.main.background.step-2	
 
 --- ftd.column:	
-if: not $show-full-screen	
+if: not $show-full-screen
 id: full-screen	
 align: center	
 anchor: parent	
@@ -249,7 +248,7 @@ $on-mouse-leave$: $active = false
 --- ftd.image:	
 if: $active	
 src: $assets.files.full-screen-active.svg	
-$on-click$: $show-full-screen = true	
+$on-click$: $show-full-screen = true
 $on-global-key[ctrl-f]$: $show-full-screen = true	
 $on-mouse-enter$: $active = true	
 $on-mouse-leave$: $active = false	
@@ -262,7 +261,7 @@ align: center
 id: slots	
 
 --- ftd.row:	
-if: not $show-full-screen	
+if: not $show-full-screen
 id: left-arrow	
 align: center	
 
@@ -291,13 +290,13 @@ $on-mouse-leave$: $show-left = false
 --- container: slots	
 
 --- ftd.row:	
-if: $show-full-screen	
+if: $show-full-screen
 $on-global-key[left]$: decrement $current clamp 1 $children-count	
 
 --- container: slots	
 
 --- show-controls:	
-if: not $show-full-screen	
+if: not $show-full-screen
 $total: $children-count	
 $current: $current	
 align: center	
@@ -305,7 +304,7 @@ align: center
 --- container: slots	
 
 --- ftd.row:	
-if: not $show-full-screen	
+if: not $show-full-screen
 id: right-arrow	
 align: center	
 
@@ -332,7 +331,7 @@ $on-mouse-leave$: $show-right = false
 --- container: slots	
 
 --- ftd.row:	
-if: $show-full-screen	
+if: $show-full-screen
 $on-global-key[right]$: increment $current clamp 1 $children-count	
 
 --- container: ftd.main
