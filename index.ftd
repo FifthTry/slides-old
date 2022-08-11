@@ -266,8 +266,8 @@ bottom: 8
 --- ftd.image:	
 if: not $active	
 src: $assets.files.full-screen-mode.svg	
-$on-click$: $show-full-screen = true	
-$on-global-key[ctrl-f]$: $show-full-screen = true	
+$on-click$: $show-full-screen = false	
+$on-global-key[esc]$: $show-full-screen = true	
 $on-mouse-enter$: $active = true	
 $on-mouse-leave$: $active = false	
 
@@ -276,8 +276,8 @@ $on-mouse-leave$: $active = false
 --- ftd.image:	
 if: $active	
 src: $assets.files.full-screen-mode-active.svg	
-$on-click$: $show-full-screen = true
-$on-global-key[ctrl-f]$: $show-full-screen = true	
+$on-click$: $show-full-screen = false
+$on-global-key[esc]$: $show-full-screen = false	
 $on-mouse-enter$: $active = true	
 $on-mouse-leave$: $active = false	
 
