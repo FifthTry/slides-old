@@ -82,6 +82,7 @@ open: true
 append-at: content	
 id: presentation	
 $on-click$: increment $current clamp 1 $CHILDREN-COUNT	
+$on-global-key[esc]$: $show-full-screen = false	
 
 --- mobile-overlay:	
 if: $show-full-screen
@@ -103,7 +104,6 @@ background-color: $fpm.color.main.text-strong
 position if $is-mobile: center	
 z-index: 99999	
 id: full-screen-container	
-$on-global-key[esc]$: $show-full-screen = false	
 
 --- container: full-screen-container	
 
@@ -131,7 +131,6 @@ height: 200
 width: fill	
 background-color if $bg-image is null: $bg-color
 
-
 --- ftd.column:	
 id: content	
 width: fill	
@@ -147,7 +146,7 @@ position: center
 --- panel:	
 $current: $current	
 $children-count: $CHILDREN-COUNT
-show-full-screen: $show-full-screen
+$show-full-screen: $show-full-screen
 
 --- container: ftd.main	
 
@@ -208,7 +207,8 @@ position: center
 --- panel:	
 $current: $current
 $children-count: $CHILDREN-COUNT
-show-full-screen: $show-full-screen
+$show-full-screen: $show-full-screen
+
 
 
 
@@ -221,12 +221,12 @@ show-full-screen: $show-full-screen
 -- ftd.column panel:
 integer $current:
 integer $children-count:
-width: fill
 boolean active: false	
 boolean show-left: false	
 boolean show-right: false
-boolean show-full-screen: $PARENT.show-full-screen
+boolean $show-full-screen: false
 background-color: $fpm.color.main.background.step-2	
+width: fill
 
 --- ftd.column:	
 if: not $show-full-screen
@@ -352,7 +352,6 @@ $on-click$: decrement $current clamp 1 $children-count
 width: 24	
 height: 24	
 align: center	
-
 
 --- show-controls:
 $total: $children-count	
