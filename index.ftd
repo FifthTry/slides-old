@@ -36,7 +36,6 @@ lang: ftd
 
 \-- presentation.presentation:
 total: 11
-embed: true <true - if added inside web page>
 bg-image: <add your presentation background image file path here(optional)>
 padding: <add padding here(optional)>
 
@@ -256,13 +255,40 @@ $on-mouse-leave$: $active = false
 
 --- container: ftd.main
 
+--- ftd.column:	
+if: $show-full-screen
+id: full-screen	
+align: center	
+anchor: parent	
+right: 16	
+bottom: 8	
+
+--- ftd.image:	
+if: not $active	
+src: $assets.files.full-screen-mode.svg	
+$on-click$: $show-full-screen = true	
+$on-global-key[ctrl-f]$: $show-full-screen = true	
+$on-mouse-enter$: $active = true	
+$on-mouse-leave$: $active = false	
+
+--- container: full-screen	
+
+--- ftd.image:	
+if: $active	
+src: $assets.files.full-screen-mode-active.svg	
+$on-click$: $show-full-screen = true
+$on-global-key[ctrl-f]$: $show-full-screen = true	
+$on-mouse-enter$: $active = true	
+$on-mouse-leave$: $active = false	
+
+--- container: ftd.main
+
 --- ftd.row:	
 if: not $is-mobile	
 align: center	
 id: slots	
 
 --- ftd.row:	
-if: not $show-full-screen
 id: left-arrow	
 align: center	
 
@@ -291,13 +317,11 @@ $on-mouse-leave$: $show-left = false
 --- container: slots	
 
 --- ftd.row:	
-if: $show-full-screen
 $on-global-key[left]$: decrement $current clamp 1 $children-count	
 
 --- container: slots	
 
 --- show-controls:	
-if: not $show-full-screen
 $total: $children-count	
 $current: $current	
 align: center	
@@ -305,7 +329,6 @@ align: center
 --- container: slots	
 
 --- ftd.row:	
-if: not $show-full-screen
 id: right-arrow	
 align: center	
 
@@ -332,7 +355,6 @@ $on-mouse-leave$: $show-right = false
 --- container: slots	
 
 --- ftd.row:	
-if: $show-full-screen
 $on-global-key[right]$: increment $current clamp 1 $children-count	
 
 --- container: ftd.main
