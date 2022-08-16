@@ -127,16 +127,19 @@ background-color if $bg-image is null: $bg-color
 
 --- ftd.column:	
 if: $is-mobile	
-height: 200	
+height: 250
 width: fill	
 background-color if $bg-image is null: $bg-color
+width: 1047
+
 
 --- ftd.column:	
 id: content	
 width: fill	
 height: 510	
 padding-horizontal: $fpm.space.space-5	
-scale: 0.4	
+scale: 0.3
+move-left: 330	
 min-width: 802	
 anchor: parent	
 position: center	
@@ -192,16 +195,17 @@ move-left: 254
 
 --- ftd.column:	
 if: $is-mobile	
-height: 200	
-width: fill	
+height: 250
+width: 1047
 
 --- ftd.column:	
 id: content	
 width: fill	
 height: 450	
 padding-horizontal: $fpm.space.space-5	
-scale: 0.4	
 min-width: 802	
+scale: 0.3
+move-left: 352
 anchor: parent	
 position: center	
 $on-click$: increment $current clamp 1 $CHILDREN-COUNT
