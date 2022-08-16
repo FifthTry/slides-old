@@ -81,7 +81,6 @@ height: fill
 open: true	
 append-at: content	
 id: presentation	
-$on-click$: increment $current clamp 1 $CHILDREN-COUNT	
 $on-global-key[esc]$: $show-full-screen = false	
 
 --- mobile-overlay:	
@@ -113,6 +112,7 @@ width: fill
 height: fill	
 height if $is-mobile: auto	
 padding if not $is-mobile: $padding	
+$on-click$: increment $current clamp 1 $CHILDREN-COUNT
 
 --- ftd.column:	
 if: not $is-mobile	
@@ -140,6 +140,7 @@ scale: 0.4
 min-width: 802	
 anchor: parent	
 position: center	
+$on-click$: increment $current clamp 1 $CHILDREN-COUNT
 
 --- container: full-screen-container
 
@@ -165,6 +166,7 @@ width: fill
 height if not $embed: fill	
 height if $embed: 350	
 id: inner	
+$on-click$: increment $current clamp 1 $CHILDREN-COUNT
 
 --- ftd.column:	
 if: not $embed	
@@ -202,6 +204,7 @@ scale: 0.4
 min-width: 802	
 anchor: parent	
 position: center	
+$on-click$: increment $current clamp 1 $CHILDREN-COUNT
 
 --- container: hidden-screen-container	
 
