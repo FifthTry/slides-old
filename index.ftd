@@ -432,3 +432,129 @@ text-align: center
 align: center
 width: fill
 text-align: center
+
+
+
+
+
+
+
+
+
+
+-- ftd.font-size title-font-regular:
+line-height: 72
+size: 64
+letter-spacing: 0
+
+-- ftd.type title-regular: $fpm.font-display
+desktop: $title-font-regular
+mobile: $title-font-regular
+xl: $title-font-regular
+weight: 400
+
+-- ftd.font-size title-font-medium:
+line-height: 92
+size: 82
+letter-spacing: 0
+
+-- ftd.type title-medium: $fpm.font-display
+desktop: $title-font-medium
+mobile: $title-font-medium
+xl: $title-font-medium
+weight: 400
+
+-- ftd.font-size title-font-large:
+line-height: 108
+size: 92
+letter-spacing: 0
+
+-- ftd.type title-large: $fpm.font-display
+desktop: $title-font-large
+mobile: $title-font-large
+xl: $title-font-large
+weight: 400
+
+
+
+
+
+
+
+
+
+
+-- ftd.font-size sub-title-font-regular:
+line-height: 46
+size: 36
+letter-spacing: 0
+
+-- ftd.type sub-title-regular: $fpm.font-display
+desktop: $sub-title-font-regular
+mobile: $sub-title-font-regular
+xl: $sub-title-font-regular
+weight: 400
+
+-- ftd.font-size sub-title-font-medium:
+line-height: 56
+size: 46
+letter-spacing: 0
+
+-- ftd.type sub-title-medium: $fpm.font-display
+desktop: $sub-title-font-medium
+mobile: $sub-title-font-medium
+xl: $sub-title-font-medium
+weight: 400
+
+-- ftd.font-size sub-title-font-large:
+line-height: 66
+size: 56
+letter-spacing: 0
+
+-- ftd.type sub-title-large: $fpm.font-display
+desktop: $sub-title-font-large
+mobile: $sub-title-font-large
+xl: $sub-title-font-large
+weight: 400
+
+
+
+
+
+
+
+
+
+
+-- ftd.font-size body-font-regular:
+line-height: 28
+size: 24
+letter-spacing: 0
+
+-- ftd.type body-regular: $fpm.font-display
+desktop: $body-font-regular
+mobile: $body-font-regular
+xl: $body-font-regular
+weight: 400
+
+-- ftd.font-size body-font-medium:
+line-height: 32
+size: 28
+letter-spacing: 0
+
+-- ftd.type body-medium: $fpm.font-display
+desktop: $body-font-medium
+mobile: $body-font-medium
+xl: $body-font-medium
+weight: 400
+
+-- ftd.font-size body-font-large:
+line-height: 42
+size: 38
+letter-spacing: 0
+
+-- ftd.type body-large: $fpm.font-display
+desktop: $body-font-large
+mobile: $body-font-large
+xl: $body-font-large
+weight: 400
