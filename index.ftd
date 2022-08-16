@@ -70,8 +70,9 @@ z-index: 10
 integer current: 1	
 boolean embed: true
 boolean show-full-screen: false
-ftd.color bg-color: $fpm.color.main.text-strong 	
-ftd.color overlay-bg-color: $fpm.color.main.background.step-1	
+ftd.color bg-color: $fpm.color.main.background.base	
+ftd.color overlay-bg-color: $fpm.color.main.background.step-1
+ftd.color panel-bg-color: $fpm.color.main.background.step-2
 optional ftd.image-src bg-image: 	
 background-color: $bg-color	
 integer padding: 0	
@@ -99,7 +100,7 @@ left: 0
 height: calc 100% - 0px	
 height if $is-mobile: auto	
 width: calc 100% - 0px	
-background-color: $fpm.color.main.text-strong	
+background-color: $bg-color
 position if $is-mobile: center	
 z-index: 99999	
 id: full-screen-container	
@@ -142,7 +143,8 @@ position: center
 
 --- container: full-screen-container
 
---- panel:	
+--- panel:
+bg-color: $panel-bg-color
 $current: $current	
 $children-count: $CHILDREN-COUNT
 $show-full-screen: $show-full-screen
@@ -203,7 +205,8 @@ position: center
 
 --- container: hidden-screen-container	
 
---- panel:	
+--- panel:
+bg-color: $panel-bg-color
 $current: $current
 $children-count: $CHILDREN-COUNT
 $show-full-screen: $show-full-screen
@@ -220,11 +223,12 @@ $show-full-screen: $show-full-screen
 -- ftd.column panel:
 integer $current:
 integer $children-count:
+ftd.color bg-color: $fpm.color.main.background.step-2
 boolean active: false	
 boolean show-left: false	
 boolean show-right: false
 boolean $show-full-screen: false
-background-color: $fpm.color.main.background.step-2	
+background-color: $bg-color
 width: fill
 
 --- ftd.column:	
