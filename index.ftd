@@ -465,8 +465,8 @@ xl: $title-font-medium
 weight: 400
 
 -- ftd.font-size title-font-large:
-line-height: 108
-size: 92
+line-height: 88
+size: 99
 letter-spacing: 0
 
 -- ftd.type title-large: $fpm.font-display
