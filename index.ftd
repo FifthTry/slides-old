@@ -127,7 +127,7 @@ background-color if $bg-image is null: $bg-color
 
 --- ftd.column:	
 if: $is-mobile	
-height: 250
+height: 200
 width: fill	
 background-color if $bg-image is null: $bg-color
 width: 1047
@@ -139,7 +139,7 @@ width: fill
 height: 510	
 padding-horizontal: $fpm.space.space-5	
 scale: 0.3
-move-left: 330	
+move-left: 330
 min-width: 802	
 anchor: parent	
 position: center	
@@ -195,7 +195,7 @@ move-left: 254
 
 --- ftd.column:	
 if: $is-mobile	
-height: 250
+height: 200
 width: 1047
 
 --- ftd.column:	
