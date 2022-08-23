@@ -81,7 +81,7 @@ height: fill
 open: true	
 append-at: content	
 id: presentation	
-$on-global-key[esc]$: $show-full-screen = false	
+
 
 --- mobile-overlay:	
 if: $show-full-screen
@@ -104,6 +104,7 @@ position if $is-mobile: center
 z-index: 99999	
 id: full-screen-container	
 
+
 --- container: full-screen-container	
 
 --- ftd.column:	
@@ -122,6 +123,7 @@ width: fill
 height: fill	
 background-image if $bg-image is not null: $bg-image	
 background-color if $bg-image is null: $bg-color
+$on-global-key[esc]$: $show-full-screen = false	
 
 --- container: switch-container	
 
