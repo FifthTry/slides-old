@@ -81,7 +81,7 @@ height: fill
 open: true	
 append-at: content	
 id: presentation	
-$on-global-key[esc]$: $show-full-screen = false	
+
 
 --- mobile-overlay:	
 if: $show-full-screen
@@ -104,6 +104,7 @@ position if $is-mobile: center
 z-index: 99999	
 id: full-screen-container	
 
+
 --- container: full-screen-container	
 
 --- ftd.column:	
@@ -122,6 +123,7 @@ width: fill
 height: fill	
 background-image if $bg-image is not null: $bg-image	
 background-color if $bg-image is null: $bg-color
+$on-global-key[esc]$: $show-full-screen = false	
 
 --- container: switch-container	
 
@@ -129,17 +131,17 @@ background-color if $bg-image is null: $bg-color
 if: $is-mobile	
 height: 200
 background-color if $bg-image is null: $bg-color
-width: 1047
+width: fill
 
 
 --- ftd.column:	
 id: content	
 width: fill	
-height: 510	
+height: 200
 padding-horizontal: $fpm.space.space-5	
-scale: 0.3
-move-left: 330
-min-width: 802	
+top:0
+left: 0
+min-width: fill
 anchor: parent	
 position: center	
 $on-click$: increment $current clamp 1 $CHILDREN-COUNT
@@ -195,16 +197,15 @@ move-left: 254
 --- ftd.column:	
 if: $is-mobile	
 height: 200
-width: 1047
+width: fill
+id: mobile
 
 --- ftd.column:	
-id: content	
+id: content
 width: fill	
-height: 450	
-padding-horizontal: $fpm.space.space-5	
-min-width: 802	
-scale: 0.3
-move-left: 352
+height: 200		
+top: 0
+left: 0
 anchor: parent	
 position: center	
 $on-click$: increment $current clamp 1 $CHILDREN-COUNT
